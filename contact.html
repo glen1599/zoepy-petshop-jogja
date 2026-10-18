@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontak &amp; Lokasi — Zoepy Petshop Jogja</title>
+<meta name="description" content="Alamat, jam buka, dan formulir booking Zoepy Petshop Jogja di Yogyakarta.">
+<meta name="theme-color" content="#0d0e0e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d0e0e'/%3E%3Cpath d='M16 25c-5 0-8-3.4-8-8 0-5.2 4-9.6 8-12 4 2.4 8 6.8 8 12 0 4.6-3 8-8 8z' fill='%23d2ff00'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/zoepy.css" rel="stylesheet">
+</head>
+<body class="page">
+
+<header class="nav" id="nav">
+  <div class="shell nav__inner">
+    <a class="wordmark" href="index.html">Zoepy<b>.</b><small>Petshop&nbsp;Jogja</small></a>
+    <nav class="nav__links" aria-label="Navigasi utama">
+      <a href="index.html#tentang">Tentang</a>
+      <a href="service.html">Layanan</a>
+      <a href="index.html#produk">Produk</a>
+      <a href="index.html#harga">Harga</a>
+      <a href="team.html">Tim</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+    <a class="nav__cta" href="#booking">
+      Booking Sekarang
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="nav__burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+  </div>
+  <div class="nav__drawer" id="drawer">
+    <a href="index.html#tentang">Tentang</a>
+    <a href="service.html">Layanan</a>
+    <a href="index.html#produk">Produk</a>
+    <a href="index.html#harga">Harga</a>
+    <a href="team.html">Tim</a>
+    <a href="blog.html">Blog</a>
+    <a href="#booking">Booking Sekarang</a>
+  </div>
+</header>
+
+<main>
+  <!-- ===== HEADER ===== -->
+  <section class="section section--tight">
+    <div class="shell">
+      <p class="eyebrow rise">Kontak</p>
+      <h1 class="display h-xl rise" style="margin-top:1.25rem;max-width:20ch">Mampir atau pesan dulu</h1>
+      <p class="page-lede rise">
+        Paling enak memang datang langsung supaya anabul bisa kami lihat dulu kondisinya.
+        Tapi kalau mau memastikan jadwal, isi form booking di bawah — kami balas lewat WhatsApp.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== INFORMASI + FORM ===== -->
+  <section class="section" style="padding-top:0">
+    <div class="shell">
+      <div class="contact-grid">
+        <!-- Kartu informasi: terisi dari site_settings -->
+        <div class="contact-info" data-hydrate="contact-cards">
+          <!-- Cadangan kalau JavaScript mati atau data belum diisi. -->
+          <div class="info">
+            <span class="info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+            <span class="info__text"><small>Alamat</small><b>Yogyakarta</b></span>
+          </div>
+          <div class="info">
+            <span class="info__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+            <span class="info__text"><small>Jam buka</small><b>08.00 – 21.00 WIB</b></span>
+          </div>
+          <p class="info__note">
+            Nomor telepon, email dan alamat lengkap diambil dari pengaturan situs —
+            begitu kamu isi di panel admin, bagian ini ikut berubah.
+          </p>
+        </div>
+
+        <!-- Form booking: menulis ke tabel `bookings` -->
+        <div class="contact-form">
+          <h2 class="display h-lg">Form booking</h2>
+          <form class="booking booking--page" id="booking-form" novalidate>
+            <div class="booking__row">
+              <label><span>Nama kamu</span><input name="name" required maxlength="80" autocomplete="name"></label>
+              <label><span>Nomor WhatsApp</span><input name="phone" required maxlength="20" inputmode="tel" autocomplete="tel"></label>
+            </div>
+            <div class="booking__row">
+              <label><span>Nama anabul</span><input name="pet_name" maxlength="60"></label>
+              <label><span>Jenis</span>
+                <select name="pet_type">
+                  <option value="">— pilih —</option>
+                  <option>Kucing</option><option>Anjing</option><option>Lainnya</option>
+                </select>
+              </label>
+            </div>
+            <div class="booking__row">
+              <label><span>Layanan</span><select name="service_slug" data-hydrate="service-options">
+                <option value="grooming-spa">Grooming &amp; Spa</option>
+                <option value="pet-hotel">Pet Hotel</option>
+                <option value="klinik-konsultasi">Klinik &amp; Konsultasi</option>
+                <option value="pakan-perlengkapan">Pakan &amp; Perlengkapan</option>
+              </select></label>
+              <label><span>Waktu yang diinginkan</span><input type="datetime-local" name="preferred_at"></label>
+            </div>
+            <label><span>Catatan (opsional)</span><textarea name="notes" maxlength="1000" rows="4" placeholder="Contoh: bulu agak kusut, agak takut air."></textarea></label>
+            <button class="btn" type="submit" id="booking-submit">
+              <span class="spinner" aria-hidden="true"></span>
+              <span id="booking-label">Kirim permintaan</span>
+            </button>
+            <p class="booking__note" id="booking-note" role="status" hidden></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PETA ===== -->
+  <section class="section" style="padding-top:0" id="lokasi">
+    <div class="shell">
+      <h2 class="display h-lg">Lokasi</h2>
+      <p class="head__note" style="margin-top:.75rem">
+        Peta ini mencari "Zoepy Petshop Jogja". Ganti dengan pin lokasi persis setelah alamat lengkap diisi.
+      </p>
+      <div class="map">
+        <iframe
+          title="Peta lokasi Zoepy Petshop Jogja"
+          src="https://maps.google.com/maps?q=Zoepy%20Petshop%20Jogja&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PERTANYAAN UMUM ===== -->
+  <section class="section section--obsidian-2">
+    <div class="shell">
+      <div class="head">
+        <div class="head__title">
+          <p class="eyebrow rise">Sering ditanya</p>
+          <h2 class="display h-xl rise" style="margin-top:1.25rem">Sebelum kamu datang</h2>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details class="faq__item rise">
+          <summary>Perlu booking dulu atau bisa langsung datang?</summary>
+          <p>Bisa langsung, tapi sering penuh di akhir pekan. Kalau booking, kami siapkan slot dan tidak perlu menunggu.</p>
+        </details>
+        <details class="faq__item rise">
+          <summary>Berapa lama satu sesi grooming?</summary>
+          <p>Biasanya 45–90 menit tergantung ukuran dan kondisi bulu. Anabul yang sangat kusut butuh waktu lebih lama.</p>
+        </details>
+        <details class="faq__item rise">
+          <summary>Apa syarat menitipkan anabul di pet hotel?</summary>
+          <p>Sudah vaksin dan bebas kutu. Bawa pakan yang biasa dipakai supaya tidak stres pergantian makanan.</p>
+        </details>
+        <details class="faq__item rise">
+          <summary>Apakah bisa antar-jemput?</summary>
+          <p>Untuk area Yogyakarta bisa, dengan biaya tambahan sesuai jarak. Tanyakan lewat WhatsApp saat konfirmasi.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="wordmark" href="index.html">Zoepy<b>.</b><small>Petshop&nbsp;Jogja</small></a>
+        <p>Grooming, pet hotel, klinik dan perlengkapan hewan. Your pet's ultimate pitstop di Yogyakarta.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1a11 11 0 0 1-4.7-3.6c-.7-1-1-1.8-1-2.4 0-.6.3-1.1.6-1.4.2-.2.4-.3.6-.3h.5c.2 0 .3 0 .5.4l.7 1.6c.1.2 0 .4-.1.5l-.4.5c-.1.1-.2.3 0 .5.4.7 1.6 2 2.8 2.5.2.1.4.1.5 0l.6-.7c.1-.2.3-.2.5-.1l1.5.8c.2.1.3.2.3.4 0 .1 0 .2-.1.3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3h-2.8v11.6a2.6 2.6 0 1 1-2.1-2.5V9.3a5.4 5.4 0 1 0 4.9 5.4V8.4A5.6 5.6 0 0 0 19.6 10V7.2A3.6 3.6 0 0 1 16 3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <ul class="footer__contact" data-hydrate="contact">
+          <li>Alamat — Yogyakarta <span style="opacity:.6">(lengkapi nama jalan)</span></li>
+          <li>Telepon — <span style="opacity:.6">(nomor WhatsApp)</span></li>
+          <li>Email — <span style="opacity:.6">(email resmi)</span></li>
+          <li>Buka — 08.00 – 21.00 WIB</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <ul class="footer__links">
+          <li><a href="index.html#tentang">Tentang</a></li>
+          <li><a href="service.html">Layanan</a></li>
+          <li><a href="index.html#produk">Produk</a></li>
+          <li><a href="index.html#harga">Harga</a></li>
+          <li><a href="team.html">Tim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Halaman</h4>
+        <ul class="footer__links">
+          <li><a href="about.html">Profil Toko</a></li>
+          <li><a href="product.html">Produk</a></li>
+          <li><a href="price.html">Harga</a></li>
+          <li><a href="team.html">Tim</a></li>
+          <li><a href="contact.html">Kontak &amp; Lokasi</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__wordmark" aria-hidden="true">Zoepy Jogja</p>
+    <div class="footer__base">
+      <span>© <span id="year">2026</span> Zoepy Petshop Jogja. Semua hak dilindungi.</span>
+      <span>Dibuat di Yogyakarta.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="cursor" id="cursor" aria-hidden="true"><i></i><span></span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/hydrate.js" defer></script>
+<script src="js/zoepy.js" defer></script>
+</body>
+</html>

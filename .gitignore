@@ -1,0 +1,27 @@
+# --- Sistem & editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# --- Data lokal (jangan pernah masuk repo) ---
+js/config.local.js
+.env
+.env.*
+!.env.example
+*.log
+
+# --- Supabase CLI lokal ---
+supabase/.temp/
+supabase/.branches/
+supabase/.env
+
+# --- Python (skrip generator) ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Sisa template yang tidak dipakai ---
+scss/
