@@ -8,10 +8,18 @@
 ![GSAP](https://img.shields.io/badge/GSAP-ScrollTrigger-88CE02?logo=greensock&logoColor=black)
 ![Supabase](https://img.shields.io/badge/Supabase-Postgres%20%2B%20RLS-3ECF8E?logo=supabase&logoColor=white)
 ![tests](https://img.shields.io/badge/RLS%20assertions-24%20passing-2ea44f)
+![Live demo](https://img.shields.io/badge/live%20demo-GitHub%20Pages-d2ff00)
 ![Accessibility](https://img.shields.io/badge/reduced--motion-supported-2ea44f)
 ![License](https://img.shields.io/badge/License-MIT-e0a96d)
 
 </div>
+
+### ▶ [Live demo](https://glen1599.github.io/zoepy-petshop-jogja/)
+
+Runs in **demo mode** — no setup, no account. Try
+[the site](https://glen1599.github.io/zoepy-petshop-jogja/index.html) and
+[the admin panel](https://glen1599.github.io/zoepy-petshop-jogja/admin.html)
+(log in with any email and password).
 
 ---
 
@@ -396,7 +404,13 @@ pages with enough bespoke layout that generating them would cost more than it sa
 
 ## Getting started
 
-No build step, no package manager, no `npm install`. Any static file server will do.
+**The fastest way to look at it is the live demo:**
+[glen1599.github.io/zoepy-petshop-jogja](https://glen1599.github.io/zoepy-petshop-jogja/)
+— it deploys itself from `main` through GitHub Pages, so what you see is exactly what is in
+this repository.
+
+To run it locally: no build step, no package manager, no `npm install`. Any static file
+server will do.
 
 ```bash
 git clone https://github.com/glen1599/zoepy-petshop-jogja.git
@@ -540,7 +554,7 @@ Any static host works — the site is plain files with no server-side rendering.
 | **Netlify** | Drag the folder into the dashboard, or connect the repo. No build command; publish directory is the project root. |
 | **Vercel** | Import the repo, framework preset **Other**, no build command. |
 | **Cloudflare Pages** | Connect the repo, leave the build command empty. |
-| **GitHub Pages** | Settings → Pages → Deploy from branch → `main` / root. |
+| **GitHub Pages** | **Already active** for this repo — [live demo](https://glen1599.github.io/zoepy-petshop-jogja/). Serves `main` / root, with `.nojekyll` so files are served verbatim. |
 | **Any web server** | Copy the folder. There is nothing to compile. |
 
 Two things to check after deploying:
