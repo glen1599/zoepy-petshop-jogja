@@ -1,3 +1,7 @@
+<div align="center"><h3><a href="#english-version">🇬🇧 English</a> | <a href="#versi-bahasa-indonesia">🇮🇩 Bahasa Indonesia</a></h3></div>
+
+<a id="english-version"></a>
+
 <div align="center">
 
 # Zoepy Petshop Jogja
@@ -714,3 +718,108 @@ license in [`LICENSE.txt`](LICENSE.txt).
 ## Author
 
 **Glen Devit Renaldi** — [@glen1599](https://github.com/glen1599)
+
+---
+
+<a id="versi-bahasa-indonesia"></a>
+
+## Versi Bahasa Indonesia
+
+**Situs editorial berenergi tinggi + panel admin berbasis Supabase, untuk petshop nyata di Yogyakarta.**
+
+### Kenapa proyek ini ada
+
+Petshop kecil biasanya mengurus semuanya lewat WhatsApp dan buku catatan: stok, booking grooming, harga layanan. Situs ini menggantikan itu dengan dua hal sekaligus — halaman publik yang benar-benar menjual, dan panel admin yang membaca datanya dari database, bukan dari HTML yang di-hardcode.
+
+Situs publik memakai GSAP + ScrollTrigger dan Lenis supaya terasa hidup tanpa mengorbankan keterbacaan. Panel admin memakai Supabase/Postgres dengan Row Level Security, jadi aturan aksesnya ditegakkan database, bukan hanya disembunyikan di UI.
+
+### Fitur utama
+
+**Situs publik**
+
+- 🎨 Animasi scroll (GSAP + Lenis) dengan `prefers-reduced-motion` yang dihormati.
+- 🐾 Katalog layanan, produk, tim, testimoni, dan blog.
+- 📅 Form booking grooming yang mengirim ke database.
+- 📱 Layout responsif, tanpa build step — HTML/CSS/JS murni.
+
+**Panel admin**
+
+- 🔐 Login Supabase, sesi persisten.
+- 📦 CRUD layanan, produk, dan booking.
+- 📊 Daftar booking dengan status dan filter tanggal.
+- 🖼️ Upload gambar ke Supabase Storage.
+
+**Engineering**
+
+- 🧪 24 assertion RLS diuji langsung terhadap PostgreSQL.
+- 🌐 Demo mode: login dengan email/password apa pun, data contoh.
+- ⚡ Tanpa framework frontend; satu file konfigurasi untuk kredensial.
+
+### Arsitektur
+
+```mermaid
+flowchart LR
+    U["Pengunjung"] --> P["index / service / product<br/>HTML statis"]
+    A["Admin"] --> AD["admin.html"]
+    P --> JS["js/ · GSAP · Lenis"]
+    AD --> SB["Supabase JS"]
+    SB --> PG[("Postgres<br/>RLS policies")]
+    P -->|"booking"| PG
+    PG --> ST["Storage<br/>gambar"]
+```
+
+| Lapisan | Teknologi | Fungsi |
+| --- | --- | --- |
+| Frontend | HTML5, CSS, JavaScript | Tanpa build step |
+| Animasi | GSAP + ScrollTrigger, Lenis | Scroll dan transisi |
+| Backend | Supabase | Auth, database, storage |
+| Database | PostgreSQL + RLS | Tabel dan kebijakan akses |
+| Test | SQL assertions | 24 pemeriksaan RLS |
+| Deploy | GitHub Pages | Demo publik |
+
+### Instalasi
+
+```bash
+git clone https://github.com/glen1599/zoepy-petshop-jogja.git
+cd zoepy-petshop-jogja
+# buka index.html, atau jalankan server statis:
+python3 -m http.server 8000
+```
+
+Untuk mode Supabase penuh, isi `js/config.local.js` (sudah di-.gitignore) dengan
+URL dan anon key proyek Anda, lalu jalankan migrasi di `supabase/`.
+
+> [!NOTE]
+> Demo publik berjalan dalam **demo mode** — tidak perlu akun, tidak perlu
+> konfigurasi. Login admin bisa memakai email dan password apa pun.
+
+### Cara pakai
+
+1. Buka `index.html` untuk situs publik.
+2. Buka `admin.html` untuk panel admin.
+3. Booking dari situs publik akan muncul di daftar admin.
+4. Ubah layanan/harga dari admin, lalu refresh situs publik.
+
+### Keamanan
+
+RLS diuji dengan 24 assertion: user anonim hanya bisa membaca konten publik,
+user login hanya bisa mengubah datanya sendiri, dan service role tetap terbatas
+pada operasi yang diizinkan. Detail lengkap ada di bagian English.
+
+### Struktur proyek
+
+```text
+zoepy-petshop-jogja/
+├── index.html · service.html · product.html · price.html
+├── admin.html · blog.html · about.html · contact.html
+├── css/ · js/ · img/
+├── supabase/            # skema + policy RLS
+├── docs/screenshots/
+└── README.md
+```
+
+### Rencana ke depan
+
+- [ ] Notifikasi WhatsApp untuk booking baru
+- [ ] Kalender ketersediaan groomer
+- [ ] Multi-bahasa (ID/EN) untuk situs publik
